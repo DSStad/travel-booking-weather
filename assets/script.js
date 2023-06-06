@@ -54,10 +54,10 @@ function handleSwitchTheme() {
     header.addClass("lightHeader");
     footer.addClass("lightFooter");
     $("#headerLogo").attr("src", "images/logoLight.png");
-    mapShadow.addClass("mapLight");
     mapShadow.removeClass("mapDark");
-    toggleColor.addClass("toggleLight");
+    mapShadow.addClass("mapLight");
     toggleColor.removeClass("toggleDark");
+    toggleColor.addClass("toggleLight");
     $("#modalCont").addClass("modal-content-light");
     $("#modalCont").removeClass("modal-content-dark");
     document.getElementById("dropdown-menu-dark").style.backgroundColor =
