@@ -50,6 +50,7 @@ function handleSwitchTheme() {
     themeSwitcher.addClass("switchBox");
     container.removeClass("dark");
     container.addClass("light");
+    header.removeClass("darkHeader");
     header.addClass("lightHeader");
     footer.addClass("lightFooter");
     $("#headerLogo").attr("src", "images/logoLight.png");
@@ -66,6 +67,7 @@ function handleSwitchTheme() {
     themeSwitcher.addClass("switchBoxChecked");
     container.removeClass("light");
     container.addClass("dark");
+    header.removeClass("lightHeader");
     header.addClass("darkHeader");
     footer.addClass("darkFooter");
     $("#headerLogo").attr("src", "images/logoDark.png");
@@ -99,9 +101,13 @@ function handleSearchHistorySelect(event) {
 function handleSearchHistory(event) {
   event.preventDefault();
   var searchResultContainer = $("#dropdown-menu-dark");
+  searchResultContainer.text("");
   searchHistoryModalEl.css("display", "block");
   var searchHistoryArr = JSON.parse(localStorage.getItem(localStorageKey));
   if (Array.isArray(searchHistoryArr)) {
+    for (var i = 0; i < searchResultContainer[0].children; i++) {
+      searchResultContainer[0].children[i].remove();
+    }
     for (var i = 0; i < searchHistoryArr.length; i++) {
       var origin = searchHistoryArr[i].origin;
       var destination = searchHistoryArr[i].destination;
